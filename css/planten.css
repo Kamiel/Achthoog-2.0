@@ -1,0 +1,222 @@
+/* M A I N   E L E M E N T S */
+
+article a {
+  text-decoration: underline;
+  font-style: normal;
+}
+article a:hover {
+  color: #58585a !important;
+  cursor: pointer;
+}
+
+div.clear {
+  clear: both;
+}
+
+div#footerpusher {
+  min-height: 100%;
+  position: relative;
+}
+
+div.container {
+  width: 950px; /* 5-koloms: 1192, 4-koloms: 950, 3-koloms: 708*/
+  margin: 0 auto; padding: 0px;
+  text-align: left;
+} 
+
+.hide {display: none !important;}
+
+i {font-style: italic}
+
+/* C O L O R S */
+
+body.plants article a,
+  body.plants header h2 {color: #09a787;}
+
+body.recipes article a,
+  body.recipes header h2 {color: #0098c8;}
+
+
+/* M A I N */
+
+article {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#introduction {
+  width: 100%;
+  margin: 20px 0 24px 0;
+  font-size: 18px; line-height: 24px; font-weight: 400;
+  color: #333;
+}
+
+article h2 {
+  margin: 32px 0 0 0;
+  font-size: 28px; font-weight: 300;
+  color: #19c7a5;
+}
+
+article h3 {
+  margin-bottom: 20px;
+  font-size: 24px; font-weight: 400;
+  color: #58585a;
+}
+
+/* NAVIGATIE VOOR TE TELEN GROENTEN */
+#showhide {
+  margin-top: 20px;
+}
+
+#showhide p {
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.resultbutton {
+  width: 28px; height: 28px;
+  margin: 0 10px 0 0;
+  text-align: center; vertical-align: middle;
+  border-radius: 4px; border: none; border-bottom: 1px solid rgba(0,0,0,0.2);
+  background-color: #bbb;
+}
+.resultbutton.active {background-color: #19c7a5;}
+
+.resultbutton img {width: 18px; height: 18px; margin-top: 2px}
+
+/* TE TELEN GROENTEN */
+
+#plant_result {margin-top: 24px;}
+
+.plant_category { 
+  width: 100%;
+  margin-bottom: 34px;
+  overflow: auto;
+}
+
+figure.plant {
+  display: inline-block;
+  vertical-align: top;
+  width: 103px;
+  margin: 0 18px 24px 0;
+  text-align: center;
+}
+
+figure.plant div {
+  display: inline-block;
+  width: 90px; height: 90px;
+  overflow: hidden;
+  margin-bottom: 4px;
+  border-radius: 112px;
+}
+
+figure.plant img {
+  width: 90px; height: auto;
+}
+
+figure.plant figcaption {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px; line-height: 18px;
+  color: #333;
+}
+
+figure.plant p {
+  width: 30px; height: 30px;
+  text-align: center;
+  vertical-align: top;
+  font-size: 10px; line-height: 30px; text-decoration: none;
+  color: #333; background-color: #fff;
+  border-radius: 15px;
+  position: absolute;
+  margin-left: 73px;
+}
+
+
+/* A S I D E */
+aside {
+  display: inline-block;
+  vertical-align: top;
+  width: 466px; height: 500px;
+  margin-left: 18px; padding: 22px 0 0 0px;
+}
+
+aside section {margin-bottom: 30px;}
+aside section:last-of-type {margin-bottom: 0px;}
+
+aside h2 {
+  margin-bottom: 10px;
+  font-size: 20px; font-weight: 400;
+  color: #58585a;
+}
+
+aside figure {
+  width: 100%; height: 30px;
+  margin-bottom: 5px;
+}
+aside figure:hover {background-color: #fff;}
+
+aside img {
+  display: inline-block;
+  width: 30px; height: 30px;
+  margin: 0;
+  border-radius: 20px;
+}
+
+aside figcaption {
+  display: inline-block;
+  vertical-align: top;
+  height: 30px;
+  margin-left: 10px;
+  color: #58585a;
+  font-size: 16px; line-height: 30px;
+}
+
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+  div.container {width: 95%;}
+  article {width: 100%;}
+  h1 {font-size: 24px}
+  aside {
+    width: 100%;
+    margin-left: 0;}
+  figure.plant {
+    width: 250px;
+    margin: 0 0 5px 0; padding: 0;
+    text-align: left;
+    overflow: auto;}
+  figure.plant img {
+    width: 50px; height: 50px;
+    margin: 0 10px 0 0;
+    overflow: auto;}
+  figure.plant figcaption {font-size: 18px; line-height: 50px;}
+  h3 {
+    width: 100%;
+    margin: 12px 0 0 0;}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  div.container {width: 708px;}
+  article {width: 466px;}
+  aside {width: 224px;}
+  section.profile:nth-child(3n) {margin-right: 0px;}
+  figure.plant:nth-of-type(4n) {margin-right: 0;}
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1224px) {
+  div.container {width: 950px;}
+  article {width: 708px;}
+  aside {width: 224px;}
+  section.profile:nth-child(4n) {margin-right: 0px;}
+  figure.plant:nth-of-type(6n) {margin-right: 0;}
+}
+
+@media screen and (min-width: 1224px) {
+  div.container {width: 1192px;}
+  section.profile:nth-child(4n) {margin-right: 224px;}
+  article {width: 950px;}
+  aside {width: 224px;}
+  figure.plant:nth-of-type(8n) {margin-right: 0;}
+}

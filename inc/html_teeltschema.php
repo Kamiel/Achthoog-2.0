@@ -1,5 +1,6 @@
 <?php
 	if (isset($teeltschema)) {
+		print_r($teeltschema);
 		echo '
 <table class="teeltschema">
 	<tr class="tableheader">';
@@ -28,7 +29,7 @@
 			$stap = 0;
 			foreach ($temp as $jaar => $teeltinfo) {
 				$stap++;
-				for ($row = 1; $row < 4; $row++) {
+				for ($row = 1; $row <= 3; $row++) {
 					echo "
 	<tr>";
 					if ($row == 1) {
@@ -43,11 +44,31 @@
 					}
 					for ($i = 0; $i < 36; $i++) {
 						$cellcolor = '';
+						$icon = $test = '';
 						foreach ($colors as $key => $color) {
 							if (isset($teeltinfo[$color[0]]) AND $row == $color[1]) {
-								$cellcolor = $color[2];
+								$x = $teeltinfo[$color[0]];
+								if ($x[3] == true AND $x[4] == true AND $x[5] == true) {
+								} elseif ($x[3] == true AND $x[4] == true) { $icon = '<img src="images/icons/loc_binnen-glas.svg">';
+								} elseif ($x[4] == true AND $x[5] == true) {
+								} elseif ($x[3] == true AND $x[5] == true) {
+								} elseif ($x[3] == true) { $icon = '<img src="images/icons/loc_binnen.svg">';
+								} elseif ($x[4] == true) { $icon = '<img src="images/icons/loc_glas.svg">';
+								} elseif ($x[5] == true) { $icon = '<img src="images/icons/loc_buiten.svg">';
+								} else { echo 'test';}
+
+								if (is_array($color[2])) {
+									for ($j = 0; $j < 3; $j++) {
+										if ($teeltinfo[$color[0]][$j+3] == true) {
+											$cellcolor = $color[2][$j];
+											$colors[$key][4+$j] = true;
+										}
+									}
+								} else {
+									$cellcolor = $color[2];
+									$colors[$key][3] = true;
+								}
 								$info = $teeltinfo[$color[0]];
-								$colors[$key][3] = true;
 							}
 						}
 						echo '
@@ -67,12 +88,12 @@
 							$a = intval($info[1]) - 1;
 							$b = intval($info[2]) - 1;
 							if ($a > $b) {
-								if ($i >= $a OR $i <= $b) echo " style=\"background-color: $cellcolor;\"";
+								if ($i >= $a OR $i <= $b) echo " style=\"background-color: $cellcolor;\">$icon";
 							} else {
-								if ($a <= $i AND $b >= $i) echo " style=\"background-color: $cellcolor;\"";
+								if ($a <= $i AND $b >= $i) echo " style=\"background-color: $cellcolor;\">$icon";
 							}
 						}
-						echo '></td>';
+						echo "</td>";
 					}
 					echo "
 		</tr>";
@@ -82,9 +103,19 @@
 		echo "
 	</table>
 	<section class=\"legenda\">";
+
 		foreach ($colors as $key => $color) {
-			if (isset($color[3])) {
-				echo "<span class=\"color\" style=\"background-color: " . $color[2] . ";\">&nbsp;</span><span class=\"explanation\">= " . $color[0] . "</span>";
+			for ($j = 3; $j <= 6; $j++) {
+				if (isset($color[$j])) {
+					if (isset($color[4])) $labeladd = 'binnen';
+					if (isset($color[5])) $labeladd = 'kas';
+					if (isset($color[6])) $labeladd = 'buiten';
+					if (isset($color[4], $color[5])) $labeladd = 'binnen en in de kas';
+					if (isset($color[4]) AND isset($color[5]) AND isset($color[6])) $labeladd = 'overal';
+					$legenda = ($j == 3 ? $color[2] : $color[2][$j-4]);
+					$label = $color[0] . ($j > 3 ? ' (' . $labeladd . ')' : '');
+					echo "<span class=\"color\" style=\"background-color: " . $legenda . ";\">&nbsp;</span><span class=\"explanation\">= " . $label . "</span>";
+				}
 			}
 		}
 

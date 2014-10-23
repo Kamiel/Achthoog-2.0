@@ -52,12 +52,13 @@
 	$search = "SELECT plant_id FROM join_p_oogsttijd";
 	$result = $dbconn->query($search);
 	$nr_results = $result->num_rows;
-	echo $nr_results;
+	echo $nr_plants;
 	for ($i = 0; $i < $nr_results; $i++){
 		$row = $result->fetch_assoc();
         $ingevuld[$row['plant_id']] = 1;
 	}
 	@ $dbconn = null;
+	print_r($ingevuld);
 ?>
 <html>
 	<head>

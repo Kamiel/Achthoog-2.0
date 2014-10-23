@@ -135,7 +135,7 @@
 					<a class=\"plantlist\" href=\"plant.php?pr=" . $_GET['pr'] . "&p=" . $pid . "\">
 						<section>
 							<div class=\"plant_photo\" style=\"background-image: url('images/plantphotos/" . $pid . "_168x224.jpg')\"></div>
-							<p>" . ucfirst($p_name_nl[1][$pid]) . "</p>
+							<p>" . $p_name_nl_cap[1][$pid] . "</p>
 						</section>
 					</a>";
 					} ?>

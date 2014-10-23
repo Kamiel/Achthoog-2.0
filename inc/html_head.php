@@ -15,6 +15,11 @@
 		<link href="http://fonts.googleapis.com/css?family=Merriweather+Sans:700 rel="stylesheet" type="text/css">
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/achthoog.css" />
+	<link rel="stylesheet" type="text/css" href="css/header.css" />
+	<link rel="stylesheet" type="text/css" href="css/footer.css" />
+	<?php
+		if (!isset($css)) $css = 'achthoog.css';
+		echo '<link rel="stylesheet" type="text/css" href="css/' . $css . '" />';
+	?>
 	<link rel="stylesheet" type="text/css" href="css/easydropdown.css" />
 </head>

@@ -16,7 +16,7 @@ div.container {
   width: 950px; /* 5-koloms: 1192, 4-koloms: 950, 3-koloms: 708*/
   text-align: left;
   padding: 0px;
-  margin: 0 auto; 
+  margin: 0 auto;
 } 
 .hide {display: none !important;}
 
@@ -31,15 +31,13 @@ i {font-style: italic}
 
 
 /* C O L O R S */
-body.welcome {background-color: #89CBC0;}
-
 body.plants header#introduction, 
   body.plants h3,
   body.plants h4,
   body.plants article a,
   body.plants header h2,
   body.welcome h3 {color: #09a787;}
-body.plants section#topbar {background-color: #09a787;}
+body.plants section#topbar {background-color: #fff;} /*#09a787;*/
 body.plants section#profilebar,
   body.plants #menu_smallscreens,
   body.plants button#menu_button:hover,
@@ -181,7 +179,7 @@ section.extra_info {
   margin: 20px 0 40px 0;
 }
 
-#mobile #welcomeheader p, #mobile #welcomeheader h4 {
+#welcomeheader p, #welcomeheader h4 {
   width: auto;
   font-size: 14px;
   line-height: 20px;
@@ -189,12 +187,12 @@ section.extra_info {
   margin: 0 0 20px 0;
 }
 
-#mobile #welcomeheader h4 {
+#welcomeheader h4 {
   font-weight: 700;
   margin: 20px 0 0 0;
 }
 
-#mobile #welcomeheader p {
+#welcomeheader p {
   width: auto;
   font-size: 14px;
   line-height: 20px;
@@ -387,7 +385,7 @@ button#submitprofile_on:hover {
   opacity: 0.5;
 }
 
-section#topbar {height: 60px;}
+section#topbar {height: 60px; border-bottom: 1px solid rgba(0,0,0,0.2);}
 
 section#profilebar {
   width: 100%;
@@ -767,6 +765,12 @@ span.jaar {
 }
 .teeltschema .bottom {
   border-bottom: 1px solid #fff;
+}
+
+table.teeltschema img {
+  width: 5px; height: 5px;
+  vertical-align: top;
+  margin-top: 1px;
 }
 
 .legenda {

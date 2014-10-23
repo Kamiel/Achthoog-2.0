@@ -3,7 +3,6 @@
 	spl_autoload_register(function ($class) {
 	    include 'inc/' . $class . '.class.php';
 	});
-
 	include 'inc/set_spaces.php'; // Set array $spaces
 	include 'inc/set_sunhours.php';
 
@@ -48,7 +47,7 @@
 									echo '
 											<section class="column' . $gutter . ' column_grid">
 												<div class="plant_photo" style="background-image: url(\'images/plantphotos/' . $p_sort_by_type[$type][$i+1] . '_168x224.jpg\')"></div>
-												<h4>' . ucfirst($p_name_nl[1][$p_sort_by_type[$type][$i+1]]) . '</h4>
+												<h4>' . $p_name_nl_cap[1][$p_sort_by_type[$type][$i+1]] . $p_sort_by_type[$type][$i+1] . '</h4>
 												<p class="ellipsis">' . $p_descr[$p_sort_by_type[$type][$i+1]] . ' <a class="meer"></a></p>
 											</section>';
 								}

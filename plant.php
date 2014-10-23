@@ -40,7 +40,14 @@
 
 	$maanden = array('JAN', 'FEB', 'MRT', 'APR', 'MEI', 'JUN', 'JUL', 'AUG', 'SEP', 'OKT', 'NOV', 'DEC');
 	$maandenkort = array('J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D');
-	$colors = array(array('zaaien', 1, '#22a98b'), array('verspenen', 1, '#95bf33'), array('uitplanten', 2, '#e6512a'), array('poten', 1, '#7d4f29'), array('aanplanten', 1, '#f09125'), array('oogsten', 3, '#2397c5'), array('snoeien', 3, '#652a7f'), array('stekken', 1, '#a11e5c'));
+	$colors = array(array('zaaien', 1, '#22a98b'), 
+		      array('verspenen', 1, '#95bf33'),
+		      array('uitplanten', 2, '#e6512a'),
+		      array('poten', 1, '#7d4f29'),
+		      array('aanplanten', 1, '#f09125'),
+		      array('oogsten', 3, '#2397c5'),
+		      array('snoeien', 3, '#652a7f'),
+		      array('stekken', 1, '#a11e5c'));
 
 	$rauw = $kook = false;
 	if ($voedingswaarde) {
@@ -104,7 +111,7 @@
 				<article id="main_article">
 					<header id="plant">
 						<div id="main_photo" class="plant_photo" <?php echo "style=\"background-image: url('images/plantphotos/" . $pid . "_168x224.jpg')\""; ?>></div>
-						<h2><?php echo ucfirst($p_name_nl[1][$pid]) ?></h2>
+						<h2><?php echo $p_name_nl_cap[1][$pid] ?></h2>
 						<h3><?php echo $p_name_lat[$pid][0] ?></h3>
 					</header>
 					<nav id="plantnav">
@@ -158,9 +165,9 @@
 							<?php if(isset($kiemduur)) { ?>
 							<h6>Zaaien</h6>
 							<p>Kiemduur: <?php echo $kiemduur_output; ?> dagen<br/>
-							Kiemtemperatuur: <?php echo $kiemtemp_output; ?> °C<br/>
-							Zaaidiepte: <?php echo $zaaidiepte; ?> mm
-							<?php if ($lichtkiemer) echo "<br/>" . ucfirst($p_name_nl[1][$pid]) . " is een lichtkiemer"; ?></p>
+							<?php if ($kiemtemp_output <> "") { ?>Kiemtemperatuur: <?php echo $kiemtemp_output; ?> °C<br/><?php } ?>
+							<?php if ($zaaidiepte <> "") { ?>Zaaidiepte: <?php echo $zaaidiepte; ?> mm<?php } ?>
+							<?php if ($lichtkiemer) { ?><br/><?php echo $p_name_nl_cap[1][$pid]; ?> is een lichtkiemer</p><?php } ?>
 							<?php } ?>
 						</section>
 						<section class="secondinfo">
@@ -238,7 +245,7 @@
 					<a class=\"plantlist\" href=\"plant.php?pr=" . $_GET['pr'] . "&p=" . $pid . "\">
 						<section>
 							<div class=\"plant_photo\" style=\"background-image: url('images/plantphotos/" . $pid . "_168x224.jpg')\"></div>
-							<p>" . ucfirst($p_name_nl[1][$pid]) . "</p>
+							<p>" . $p_name_nl_cap[1][$pid] . "</p>
 						</section>
 					</a>";
 					} ?>

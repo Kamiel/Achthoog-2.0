@@ -2,11 +2,13 @@
 
 /* C O L O R S */
 
-body.plants .dropdown, 
-	body.plants .dropdown div {background-color: #1a987e;}
+
 body.plants .dropdown:hover,
-	body.plants .dropdown:focus {background-color: #74bd89 !important;}
-body.plants .dropdown li.focus {background: #57ac96;}
+	body.plants .dropdown:focus {background-color: rgba(0,0,0,0.025) !important;}
+body.plants .dropdown li.focus {background: #19c7a5;}
+body.plants .dropdown li {color: #333;}
+body.plants .dropdown li.focus {color: #fff}
+
 
 body.recipes .dropdown, 
 	body.recipes .dropdown div {background-color: #0088b3;}
@@ -35,22 +37,29 @@ body.recipes .dropdown li.focus {background: #399ec4;}
 }
 
 /* WRAPPER */
-
 .dropdown{
 	position: relative;
-	width: 210px;
-	height: 28px;
-	margin: 0 4px 0 0;
+	width: 185px;
+	height: 26px;
 	cursor: pointer;
-	border-radius: 8px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-right: none;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	background-color: rgba(0,0,0,0.05);
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
 	font-weight: 300;
+	color: #777;
 }
 
 .dropdown.open{
 	z-index: 2;
+}
+
+.dropdown div {
+	background-color: #fff;
 }
 
 /* CARAT */
@@ -61,17 +70,17 @@ body.recipes .dropdown li.focus {background: #399ec4;}
 	top: 60%;
 	margin-top: -4px;
 	border: 5px solid transparent;
-	border-top: 5px solid #fff;
+	border-top: 5px solid #777;
 }
 
 .dropdown.open .carat{
 	margin-top: -10px;
 	border-top: 5px solid transparent;
-	border-bottom: 5px solid #fff;
+	border-bottom: 5px solid #777;
 }
 
 .dropdown.disabled .carat{
-	border-top-color: #999;
+	border-top-color: #fff;
 }
 
 /* OLD SELECT (HIDDEN) */
@@ -107,10 +116,8 @@ body.recipes .dropdown li.focus {background: #399ec4;}
 .dropdown .selected,
 .dropdown li{
 	display: block;
-	font-size: 14px;
-	line-height: 1;
-	color: #fff;
-	padding: 7px 12px;
+	font-size: 12px;
+	padding: 8px 12px;
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -137,8 +144,10 @@ body.recipes .dropdown li.focus {background: #399ec4;}
 	left: -1px;
 	right: -1px;
 	top: 100%;
-	margin-top: -1px;
-	border-radius: 8px;
+	margin-top: 1px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-top: none;
 	overflow: hidden;
 	opacity: 0;
 }
@@ -193,7 +202,6 @@ body.recipes .dropdown li.focus {background: #399ec4;}
 .dropdown li:focus {
 	position: relative;
 	z-index: 3;
-	color: #fff;
 }
 
 .dropdown li.active{

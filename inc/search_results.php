@@ -18,6 +18,11 @@
 			if ($plantinprofile[$row['plant_id']]) {
 		    	$p_sort[$x] = $p_id = $row['plant_id'];
 		        $p_name_nl[1][$p_id] = $row['naamnl'];
+			        if (substr($row['naamnl'], 0, 2) == 'ij') {
+		        	$p_name_nl_cap[1][$p_id] = 'IJ' . substr($row['naamnl'], 2);
+		        } else {
+		        	$p_name_nl_cap[1][$p_id] = ucfirst($row['naamnl']);
+		        }
 		        $p_descr[$p_id] = $row['descr'];
 		        $p_type[$p_id] = $row['type_id'];
 		        $p_type_count[$row['type_id']]++; //sets a counter per plant type (vegetables, herbs, etc.)
